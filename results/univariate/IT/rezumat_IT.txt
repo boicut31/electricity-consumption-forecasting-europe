@@ -1,0 +1,98 @@
+Rezumat analiza univariata pentru tara: IT
+============================================================
+
+1. TRANSFORMARE BOX-COX
+   Lambda optim: 1.9999
+   Decizie utilizator: FALSE
+
+2. STATIONARITATE SI DIFERENTIERE
+   --- Seria originala ---
+   ADF simplu (tseries) p : 0.0100
+   Phillips-Perron stat   : -174.8871  p = 0.0100
+   KPSS stat              : 1.1551  (crit. 5% = 0.463)
+   ADF ur.df type=none  tau = -0.5149  (cv5 = -1.9500 )
+   ADF ur.df type=drift tau = -8.9748  (cv5 = -2.8800 )
+   ADF ur.df type=trend tau = -9.6602  (cv5 = -3.4300 )
+
+   --- Dupa diferentiere sezoniera (D = 1 ) ---
+   ADF simplu p : 0.0101
+   Phillips-Perron stat: -87.3194  p = 0.0100
+   KPSS stat    : 0.1002
+   Canova-Hansen: joint stat = 0.6927, p = 0.7700
+
+   Decizie d (regular): 1
+   --- Seria stationara finala (d=1, D=1) ---
+   ADF simplu p : 0.0100
+   KPSS stat    : 0.0291
+   PP p         : 0.0100
+
+3. VALORI ACF / PACF LA LAGURI CHEIE
+   ACF lag 1 : -0.3213
+   ACF lag 2 : -0.1554
+   ACF lag 3 : 0.0755
+   ACF lag 12: -0.4448
+   ACF lag 24: -0.0806
+   PACF lag 1 : -0.3213
+   PACF lag 2 : -0.2885
+   PACF lag 3 : -0.0992
+   PACF lag 12: -0.3673
+   PACF lag 24: -0.2023
+   Pragul de semnificatie 95%: 0.1376
+
+4. ORDINE INTRODUSE MANUAL
+   SARIMA(2,1,1)(2,1,1)[12]
+
+5. SPECIFICATII MODELE ESTIMATE
+   Model auto.arima: ARIMA(1,0,1)(2,1,1)[12]
+   Model ETS (tip): ETS(M,N,A)
+
+6. LJUNG-BOX (lag 24, p > 0.05 = reziduuri OK)
+   Manual: 0.7732  adecvat: TRUE
+   Auto  : 0.8969  adecvat: TRUE
+   ETS   : 0.4097  adecvat: TRUE
+
+7. ACURATETE OUT-OF-SAMPLE (ultimele 24 luni)
+   Model    RMSE       MAE        MAPE       MASE       LB_p
+   Manual   692.88     522.49     1.99       0.554      0.7732    
+   Auto     716.22     530.80     2.02       0.562      0.8969    
+   ETS      1082.23    837.31     3.14       0.887      0.4097    
+
+8. ACURATETE IN-SAMPLE (set antrenament)
+   Model    RMSE       MAE        MAPE       MASE       AICc       LB_p
+   Manual   697.09     494.18     1.87       0.524      2897.44    0.7732    
+   Auto     692.56     494.12     1.87       0.523      2906.37    0.8969    
+   ETS      713.38     530.04     2.00       0.562      3564.17    0.4097    
+
+9. MODEL CASTIGATOR (ales de utilizator): SARIMA manual - SARIMA(2,1,1)(2,1,1)[12]
+   MAPE out-of-sample al castigatorului: 1.99 %
+
+10. PROGNOZA FINALA 2026-2027
+    Model folosit: SARIMA manual - SARIMA(2,1,1)(2,1,1)[12]
+    Refit pe seria completa ( 216 luni de la 2008-01 pana la 2025-12 )
+
+    Luna         Prognoza   IC_80_inf   IC_80_sup   IC_95_inf   IC_95_sup  
+    ------------------------------------------------------------------------
+    2026-01-01   26370.92   25429.09    27312.74    24930.52    27811.32   
+    2026-02-01   24524.99   23445.85    25604.13    22874.59    26175.39   
+    2026-03-01   25423.40   24251.58    26595.23    23631.25    27215.56   
+    2026-04-01   22557.57   21334.79    23780.35    20687.49    24427.66   
+    2026-05-01   23965.02   22710.84    25219.20    22046.92    25883.12   
+    2026-06-01   25877.36   24603.62    27151.10    23929.34    27825.38   
+    2026-07-01   29613.24   28326.89    30899.60    27645.93    31580.55   
+    2026-08-01   25575.30   24280.59    26870.01    23595.21    27555.39   
+    2026-09-01   26026.24   24725.82    27326.66    24037.42    28015.07   
+    2026-10-01   25610.26   24305.81    26914.71    23615.28    27605.25   
+    2026-11-01   25346.92   24039.53    26654.31    23347.44    27346.40   
+    2026-12-01   25734.56   24424.95    27044.17    23731.69    27737.43   
+    2027-01-01   26761.64   25442.27    28081.00    24743.84    28779.43   
+    2027-02-01   24868.56   23544.39    26192.72    22843.42    26893.70   
+    2027-03-01   25917.51   24589.52    27245.49    23886.53    27948.48   
+    2027-04-01   22944.55   21613.78    24275.32    20909.32    24979.78   
+    2027-05-01   24329.48   22996.55    25662.41    22290.94    26368.02   
+    2027-06-01   26230.62   24895.96    27565.28    24189.43    28271.80   
+    2027-07-01   29838.27   28502.18    31174.36    27794.90    31881.64   
+    2027-08-01   25557.39   24220.08    26894.69    23512.16    27602.62   
+    2027-09-01   25915.23   24576.85    27253.60    23868.36    27962.09   
+    2027-10-01   25315.00   23975.67    26654.33    23266.67    27363.33   
+    2027-11-01   25142.21   23802.00    26482.42    23092.54    27191.88   
+    2027-12-01   25438.86   24097.83    26779.88    23387.93    27489.78   

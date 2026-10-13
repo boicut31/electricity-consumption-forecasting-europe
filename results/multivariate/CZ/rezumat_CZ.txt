@@ -1,0 +1,66 @@
+Rezumat analiza multivariata (ARDL) pentru tara: CZ
+============================================================
+
+0. ALEGERILE UTILIZATORULUI (pentru reproducibilitate)
+   Ruleaza tara         : y
+   Tip model ales       : ARDL
+   ARDL var. dependenta : Elec
+   ARDL regresori       : IPI, TDD
+   ARDL max_order (lag) : 12
+   Orizont OOS          : 4
+   Clasificare Elec     : 1
+   Clasificare IPI      : 1
+   Clasificare TDD      : 0
+
+AJUSTARE SEZONIERA:
+  Elec: TRUE | motor: TRAMO-SEATS | Canova-Hansen p: 0.3936
+  TDD : TRUE | motor: TRAMO-SEATS | Canova-Hansen p: 0.4030
+  IPI : deja ajustat sezonier (Eurostat SCA)
+
+1. ORDIN DE INTEGRARE (ADF + KPSS, confirmat de utilizator)
+   Elec: 1  IPI: 1  TDD: 0
+   (mix I(0)/I(1) verificat anti-I(2): nicio serie nu este I(2))
+
+3. MODEL ESTIMAT: ARDL(6, 12, 3) | variabila dep: Elec
+
+4. BOUNDS TEST (case = 3)
+   F-statistic: 2.2715 | limite I(0)/I(1): 3.7906 / 4.8068 | p = 0.4595 | decizie: relatie TL NU/inconcludent
+   -> F < limita I(0): FARA relatie de termen lung
+   t-statistic: -2.1855 | limite I(0)/I(1): -2.8601 / -3.5073 | p = 0.4505
+   -> t peste limita I(0): FARA relatie de termen lung
+
+5. RELATIA DE TERMEN LUNG (multiplicatori LR)
+     IPI: coef = -11.8674 (negativ), p = 0.1314
+     TDD: coef = -1.5115 (negativ), p = 0.6347
+   ecuatie echilibru: Elec = 6533.192 - 11.867*IPI - 1.511*TDD
+
+6. TERMEN DE CORECTIE (ECT din RECM)
+   coeficient ECT: -0.1046 (p = 0.0094) (negativ+semnificativ in (-1,0) = ajustare stabila)
+   viteza ajustare: 10.5% din dezechilibru corectat per perioada
+
+7. DINAMICA PE TERMEN SCURT (coeficienti d(.) semnificativi)
+    d(L(Elec, 1)) (coef=-0.4362, p=0.0000); d(L(Elec, 2)) (coef=-0.3195, p=0.0000); d(L(Elec, 4)) (coef=-0.1055, p=0.0469); d(L(Elec, 5)) (coef=-0.0938, p=0.0467); d(IPI) (coef=17.7030, p=0.0000); d(L(IPI, 1)) (coef=16.0272, p=0.0000); d(L(IPI, 2)) (coef=11.3426, p=0.0002); d(L(IPI, 7)) (coef=5.4719, p=0.0447); d(TDD) (coef=2.0505, p=0.0000); d(L(TDD, 1)) (coef=1.5624, p=0.0000); d(L(TDD, 2)) (coef=1.2034, p=0.0000)
+
+8. DIAGNOSTICE
+   Breusch-Godfrey p (lag4/lag8): 0.8015 / 0.8483
+   Breusch-Pagan p: 0.6555 | Jarque-Bera p: 0.0000 | Shapiro p: 0.0001
+   CUSUM stabil: DA (CUSUM p=0.1506, OLS-CUSUM p=0.5154)
+
+9. METRICI OUT-OF-SAMPLE (4 luni, regresori inertiali, var. Elec)
+   Model ARDL    RMSE = 97.81  MAE = 82.67  MAPE = 1.65%
+   Naiv RW       RMSE = 149.53  MAE = 141.53  MAPE = 2.83% (potrivit I(1))
+   Naiv MEAN     RMSE = 185.42  MAE = 179.03  MAPE = 3.60% (potrivit I(0))
+   Naiv SEAS     RMSE = 111.62  MAE = 99.96  MAPE = 2.01% (luna t-12)
+
+   Sub-orizonturi ARDL (h = 1, 3, 6, 12, h_test):
+ h   RMSE   MAE MAPE
+ 1   6.97  6.97 0.14
+ 3 105.51 86.97 1.73
+ 4  97.81 82.67 1.65
+
+10. SINTEZA INTERPRETATIVA (ARDL)
+   - Echilibru pe termen lung: neconfirmat (Bounds test).
+   - Viteza de ajustare: 10.5% pe luna catre echilibru (ECT = -0.1046).
+   - Dinamica pe termen scurt: d(L(Elec, 1)) (coef=-0.4362, p=0.0000); d(L(Elec, 2)) (coef=-0.3195, p=0.0000); d(L(Elec, 4)) (coef=-0.1055, p=0.0469); d(L(Elec, 5)) (coef=-0.0938, p=0.0467); d(IPI) (coef=17.7030, p=0.0000); d(L(IPI, 1)) (coef=16.0272, p=0.0000); d(L(IPI, 2)) (coef=11.3426, p=0.0002); d(L(IPI, 7)) (coef=5.4719, p=0.0447); d(TDD) (coef=2.0505, p=0.0000); d(L(TDD, 1)) (coef=1.5624, p=0.0000); d(L(TDD, 2)) (coef=1.2034, p=0.0000)
+   - Limitari: relatii contemporane intre regresori necaptate;
+     posibile rupturi structurale (vezi CUSUM); scenariu OOS inertial.

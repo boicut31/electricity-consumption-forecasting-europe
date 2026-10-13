@@ -1,0 +1,27 @@
+country_code,country,integration_elec_ipi_tdd,ardl_spec,bounds_F,bounds_t,bounds_F_verdict,bounds_t_verdict,long_run_relationship,ect,ect_p,lr_multiplier_ipi,lr_multiplier_tdd,cusum_stable,oos_mape_ardl_pct,oos_mape_random_walk_pct,oos_mape_mean_pct,oos_mape_seasonal_naive_pct,best_oos_model
+AT,Austria,I(1)/I(1)/I(0),"ARDL(7,12,3)",2.566,-2.7723,rejected,rejected,rejected,-0.1159,0.0058,-11.273,-0.4854,yes,4.25,2.81,3.03,7.53,Random walk
+BE,Belgium,I(1)/I(1)/I(0),"ARDL(3,12,3)",5.7287,-3.9387,confirmed,confirmed,confirmed,-0.1999,0,-25.4948,3.2609,yes,3.88,2.68,10.91,4.62,Random walk
+BG,Bulgaria,I(1)/I(1)/I(0),"ARDL(3,12,4)",7.5832,-4.7236,confirmed,confirmed,confirmed,-0.3906,0,-7.126,1.439,yes,4.05,4.75,3.38,5.16,Mean
+CY,Cyprus,I(1)/I(1)/I(0),"ARDL(1,12,1)",14.6621,-6.5966,confirmed,confirmed,confirmed,-0.3634,0,2.683,0.4862,yes,1.68,2.7,15.17,2.38,ARDL
+CZ,Czechia,I(1)/I(1)/I(0),"ARDL(6,12,3)",2.2715,-2.1855,rejected,rejected,rejected,-0.1046,0.0094,-11.8674,-1.5115,yes,1.65,2.83,3.6,2.01,ARDL
+DE,Germany,I(1)/I(1)/I(0),"ARDL(2,12,0)",12.1122,-4.4917,confirmed,confirmed,confirmed,-0.1709,0,275.8253,35.1473,no,1.48,1.21,7.46,1.31,Random walk
+DK,Denmark,I(1)/I(1)/I(0),"ARDL(2,12,2)",4.4061,-3.3732,inconclusive,inconclusive,inconclusive,-0.1677,0.0003,5.1419,1.5724,yes,2.57,2.16,8.52,7.02,Random walk
+EE,Estonia,I(0)/I(1)/I(0),"ARDL(2,12,2)",10.0357,-5.4803,confirmed,confirmed,confirmed,-0.381,0,1.2824,0.3424,yes,2.32,1.82,1.93,7.77,Random walk
+EL,Greece,I(1)/I(1)/I(0),"ARDL(4,12,4)",0.8137,-1.2877,rejected,rejected,rejected,-0.0604,0.1179,-18.6205,-3.0666,no,7.42,12.12,18.65,4.92,Seasonal naive
+ES,Spain,I(1)/I(1)/I(0),"ARDL(9,12,10)",0.365,-0.0404,rejected,rejected,rejected,-0.0012,0.294,1401.4162,-2112.1551,no,0.72,1.74,4.66,4.03,ARDL
+FI,Finland,I(1)/I(1)/I(0),"ARDL(6,12,5)",5.7423,-3.948,confirmed,confirmed,confirmed,-0.2484,0,-32.2109,4.474,yes,1.83,1.82,2.09,4.11,Random walk
+FR,France,I(1)/I(0)/I(0),"ARDL(5,12,6)",0.7365,-1.4376,rejected,rejected,rejected,-0.0561,0.1367,-57.4266,36.0157,no,2.42,2.28,10.54,1.85,Seasonal naive
+HU,Hungary,I(1)/I(1)/I(0),"ARDL(10,12,9)",3.9499,-2.2294,inconclusive,rejected,inconclusive,-0.1347,0.0007,7.4926,-3.3032,yes,3.14,3.01,5.78,1.4,Seasonal naive
+IE,Ireland,I(1)/I(1)/I(0),"ARDL(5,12,5)",4.449,-3.2825,inconclusive,inconclusive,inconclusive,-0.1462,0.0003,7.1145,0.9535,yes,2.27,1.93,15.26,3.85,Random walk
+IT,Italy,I(1)/I(0)/I(0),"ARDL(5,12,3)",4.8841,-3.557,confirmed,confirmed,confirmed,-0.2901,0.0002,148.7171,16.9096,yes,3.13,4.79,1.16,1.4,Mean
+LT,Lithuania,I(1)/I(1)/I(0),"ARDL(10,12,12)",2.2485,-2.0197,rejected,rejected,rejected,-0.0779,0.0098,-3.2932,-1.7123,yes,8.93,9.67,6.02,6.34,Mean
+LU,Luxembourg,I(1)/I(1)/I(0),"ARDL(12,12,12)",4.5551,-3.652,inconclusive,confirmed,divergent,-0.4195,0.0003,2.1123,0.1711,yes,0.93,1.06,9.28,8.21,ARDL
+LV,Latvia,I(1)/I(1)/I(0),"ARDL(2,12,2)",7.569,-4.6788,confirmed,confirmed,confirmed,-0.2386,0,0.1531,0.0454,yes,1.75,2.33,2.25,5.66,ARDL
+NL,Netherlands,I(0)/I(1)/I(0),"ARDL(1,12,1)",11.4257,-5.7559,confirmed,confirmed,confirmed,-0.2861,0,5.0789,3.1608,yes,1.25,1.47,0.52,1.93,Mean
+NO,Norway,I(0)/I(1)/I(0),"ARDL(3,12,2)",5.2474,-3.6601,confirmed,confirmed,confirmed,-0.2281,0.0001,-16.2405,7.4435,yes,4.09,6.51,3.72,1.06,Seasonal naive
+PL,Poland,I(1)/I(1)/I(0),"ARDL(3,12,0)",4.061,-3.0732,inconclusive,inconclusive,inconclusive,-0.1663,0.0006,16.3156,1.7435,yes,1.55,2.59,5.6,3.69,ARDL
+PT,Portugal,I(1)/I(1)/I(0),"ARDL(10,12,8)",1.8237,-2.1274,rejected,rejected,rejected,-0.0668,0.0198,-49.8475,0.7368,no,1.55,0.93,12.2,5.87,Random walk
+RO,Romania,I(1)/I(1)/I(0),"ARDL(5,12,5)",2.3862,-2.344,rejected,rejected,rejected,-0.0971,0.0078,11.5893,-2.1767,yes,0.91,1.55,3.67,2.44,ARDL
+SE,Sweden,I(1)/I(1)/I(0),"ARDL(4,12,2)",4.1072,-3.1077,inconclusive,inconclusive,inconclusive,-0.1373,0.0005,-56.4096,10.8336,yes,3.49,3.53,8.86,1.35,Seasonal naive
+SI,Slovenia,I(1)/I(1)/I(0),"ARDL(10,12,10)",8.5633,-4.5171,confirmed,confirmed,confirmed,-0.2031,0,-3.4358,-0.4537,yes,4.96,11.52,4.65,3.01,Seasonal naive
+SK,Slovakia,I(1)/I(1)/I(0),"ARDL(5,12,1)",4.3741,-1.9207,inconclusive,rejected,inconclusive,-0.0548,0.0004,15.9771,7.3953,yes,3.31,3.38,12.14,2.11,Seasonal naive

@@ -1,0 +1,67 @@
+Rezumat analiza multivariata pentru tara: RO
+============================================================
+
+0. ALEGERILE UTILIZATORULUI (pentru reproducibilitate)
+   Ruleaza tara         : y
+   Lag ales             : 2
+   Tip model ales       : VAR_DIFF
+   Rang cointegrare     : 0
+   Ordine Cholesky      : TDD,IPI,Elec
+   n.ahead (IRF/FEVD)   : 24
+   runs (IRF bootstrap) : 500
+   Orizont OOS          : 3
+   Re-estimare cu alt lag: FALSE
+   Clasificare Elec (user): 1
+   Clasificare IPI  (user): 1
+   Clasificare TDD  (user): 0
+
+AJUSTARE SEZONIERA:
+  Elec: TRUE | motor: TRAMO-SEATS | Canova-Hansen p: 0.4196
+  TDD : TRUE | motor: TRAMO-SEATS | Canova-Hansen p: 0.4775
+  IPI : deja ajustat sezonier (Eurostat SCA)
+
+1. ORDIN DE INTEGRARE (ADF + KPSS, confirmat de utilizator)
+   Elec: 1
+   IPI : 1
+   TDD : 0
+
+2. SELECTIA LAGULUI
+   Lag AIC: 2
+   Lag SC : 1
+   Lag folosit: 2
+
+3. TIP MODEL ESTIMAT: VAR_DIFF
+   Rang cointegrare: 0
+
+4. VECTOR DE COINTEGRARE BETA (daca VECM)
+    (nu se aplica)
+
+   COEFICIENTI ALPHA:
+    (nu se aplica)
+
+5. DIAGNOSTICE REZIDUURI (p > 0.05 = OK)
+   Portmanteau (autocorelare) p: 0.4995
+   ARCH (heteroscedasticitate) p: 0.0001
+   Jarque-Bera (normalitate) p: 0.0000
+
+6. CAUZALITATE GRANGER PAIRWISE (p < 0.05 = cauzalitate)
+   IPI  -> Elec : 0.2618
+   TDD  -> Elec : 0.2425
+   Elec -> IPI  : 0.5754
+   Elec -> TDD  : 0.7549
+   IPI  -> TDD  : 0.0156
+   TDD  -> IPI  : 0.9505
+
+7. METRICI OUT-OF-SAMPLE (3 luni, doar consum Elec)
+   Model VAR_DIFF    RMSE = 52.62  MAE = 43.58  MAPE = 1.05%
+   Naiv RW       RMSE = 54.72  MAE = 50.89  MAPE = 1.21% (potrivit I(1))
+   Naiv MEAN     RMSE = 164.55  MAE = 155.52  MAPE = 3.72% (potrivit I(0))
+   Naiv SEAS     RMSE = 133.96  MAE = 122.63  MAPE = 2.93% (luna t-12)
+
+   Sub-orizonturi VAR (h = 1, 3, 6, 12, h_test):
+ h  RMSE   MAE MAPE
+ 1 17.29 17.29 0.40
+ 3 52.62 43.58 1.05
+
+8. INTERPRETARE AUTOMATA
+    Nu s-au gasit relatii Granger semnificative la 5%.
